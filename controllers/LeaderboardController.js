@@ -1,4 +1,4 @@
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 const getLeaderboardUsers = (req, res) => {
   const query = `
