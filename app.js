@@ -37,21 +37,21 @@ app.use(express.urlencoded({ extended: true }));
 
 // --- Routes ---
 app.use('/api', logResRoutes);
-app.use('/api/child-profiles', verifyToken, childProfileRoutes);
-app.use('/api/parent-profiles', verifyToken, parentProfileRoutes);
-app.use('/api/subscription', verifyToken, subscriptionRoutes);
-app.use('/api/userprofile', verifyToken, userprofileRoutes);
-app.use('/api/quiz', verifyToken, quizRoutes);
-app.use('/api/bacacerita', verifyToken, bacaCeritaRoutes);
-app.use('/api/leaderboard', verifyToken, leaderboardRoutes);  
-app.use('/api/homepage', verifyToken, homepageRoutes); 
-app.use('/api/search', verifyToken, searchRoutes); 
-app.use('/api/onboarding', verifyToken, onboardingRoutes);
-app.use('/api/library', verifyToken, libraryRoutes); 
-app.use('/api/avatar', verifyToken, avatarRoutes);
-app.use('/api/levelselector', verifyToken, levelselectorRoutes);
-app.use('/api/occupationselector', verifyToken, occupationSelectorRoutes);
-app.use('/api/relationshipselector', verifyToken, relationshipSelectorRoutes);
+app.use('/api/child-profiles', childProfileRoutes);
+app.use('/api/parent-profiles', parentProfileRoutes);
+app.use('/api/subscription', subscriptionRoutes);
+app.use('/api/userprofile', userprofileRoutes);
+app.use('/api/quiz', quizRoutes);
+app.use('/api/bacacerita', bacaCeritaRoutes);
+app.use('/api/leaderboard', leaderboardRoutes);  
+app.use('/api/homepage', homepageRoutes); 
+app.use('/api/search', searchRoutes); 
+app.use('/api/onboarding', onboardingRoutes);
+app.use('/api/library', libraryRoutes); 
+app.use('/api/avatar', avatarRoutes);
+app.use('/api/levelselector', levelselectorRoutes);
+app.use('/api/occupationselector', occupationSelectorRoutes);
+app.use('/api/relationshipselector', relationshipSelectorRoutes);
 
 
 
