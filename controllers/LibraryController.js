@@ -1,4 +1,4 @@
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 // Ambil semua rak cerita berdasarkan user
 exports.getShelves = (req, res) => {
