@@ -25,6 +25,11 @@ const subscriptionPlans = [
   },
 ];
 
+let userSubscription = {
+  activePlan: null,
+  referralCode: "VK2Z4A"
+};
+
 module.exports = {
   // Fungsi ini tetap sama, untuk menampilkan paket apa saja yang tersedia.
   getPlans: (req, res) => {
