@@ -10,8 +10,8 @@ const verifyToken = require('./middleware/authMiddleware').verifyToken;
 // Import route
 const childProfileRoutes = require('./routes/ChildProfileRoutes');
 const parentProfileRoutes = require('./routes/ParentProfileRoutes');
-const subscriptionRoutes = require('./routes/subscriptionRoutes');
-const userprofileRoutes = require('./routes/userprofileRoutes');
+const subscriptionRoutes = require('./routes/SubscriptionRoutes');
+const userprofileRoutes = require('./routes/UserprofileRoutes');
 const quizRoutes = require('./routes/QuizRoutes');
 const bacaCeritaRoutes = require('./routes/BacaCeritaRoutes');
 const leaderboardRoutes = require('./routes/LeaderboardRoutes');  
