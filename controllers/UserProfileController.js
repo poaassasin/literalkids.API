@@ -1,4 +1,4 @@
-const db = require('../config/db_local'); // Asumsikan ada koneksi DB di sini
+const db = require('../config/database.js'); // Asumsikan ada koneksi DB di sini
 const bcrypt = require('bcrypt');
 
 const getAllUsers = async (req, res) => {
