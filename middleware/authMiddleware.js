@@ -1,7 +1,7 @@
 // authMiddleware.js
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
