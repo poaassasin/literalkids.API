@@ -61,5 +61,5 @@ app.use((req, res, next) => {
 });
 
 // Jalankan server
-const PORT = process.env.SERVER_PORT || 5001;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
