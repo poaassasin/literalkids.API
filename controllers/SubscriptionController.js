@@ -1,6 +1,6 @@
 // controllers/subscriptionController.js
 
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 const subscriptionPlans = [
   {
