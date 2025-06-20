@@ -1,4 +1,4 @@
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 // Ambil semua quiz questions
 const getAllQuizQuestions = (req, res) => {
