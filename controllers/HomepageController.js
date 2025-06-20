@@ -1,4 +1,4 @@
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 // Get user info by ID
 const getHomepageUser = (req, res) => {
