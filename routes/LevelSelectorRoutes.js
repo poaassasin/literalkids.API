@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 // GET /api/levelselector/school-levels
 router.get('/school-levels', (req, res) => {
