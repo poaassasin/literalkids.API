@@ -1,4 +1,4 @@
-const db = require('../config/db_local');
+const db = require('../config/database.js');
 
 // Ambil semua genre
 const getAllGenres = (req, res) => {
