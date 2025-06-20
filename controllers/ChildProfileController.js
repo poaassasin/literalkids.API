@@ -1,4 +1,4 @@
-const db = require("../config/db_local");
+const db = require('../config/database.js');
 
 const getAllChildProfiles = (req, res) => {
   db.query("SELECT * FROM child_profiles", (err, results) => {
