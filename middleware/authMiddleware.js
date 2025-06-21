@@ -383,12 +383,13 @@ const validateOnboarding = (req, res, next) => {
     return res.status(400).json({ message: 'Kode referral harus berupa teks jika diisi' });
   }
 
+  // Izinkan nilai -1 sebagai tanda "tidak memilih paket" atau "melewatkan"
   if (
     selectedPackageIndex === undefined ||
     typeof selectedPackageIndex !== 'number' ||
-    ![0, 1, 2].includes(selectedPackageIndex)
+    ![-1, 0, 1, 2].includes(selectedPackageIndex) // <-- PERUBAHAN DI SINI
   ) {
-    return res.status(400).json({ message: 'Index paket tidak valid. Harus 0, 1, atau 2' });
+    return res.status(400).json({ message: 'Index paket tidak valid. Harus -1, 0, 1, atau 2' });
   }
 
   next();
