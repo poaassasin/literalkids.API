@@ -53,7 +53,12 @@ app.use('/api/levelselector', levelselectorRoutes);
 app.use('/api/occupationselector', occupationSelectorRoutes);
 app.use('/api/relationshipselector', relationshipSelectorRoutes);
 
-
+app.get("/", (req, res) => {
+  res.status(200).json({ 
+    status: "success",
+    message: "Literakids API is running" 
+  });
+});
 
 // --- Error Handling ---
 app.use((req, res, next) => {
