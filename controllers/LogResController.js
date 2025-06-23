@@ -40,7 +40,14 @@ const loginUser = (req, res) => {
             { expiresIn: "1h" }
         );
 
-        res.json({ message: "Login successful", token });
+        res.json({ 
+            message: "Login successful", 
+            token: token,
+            user: {
+                id: user.id,
+                email: user.email
+            }
+        });
     });
 };
 
