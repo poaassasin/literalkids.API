@@ -18,6 +18,7 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = (req, res) => {
+    //ini adalah perubahan
     const { email, password } = req.body;
 
     const sql = "SELECT * FROM users WHERE email = ?";
