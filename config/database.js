@@ -1,6 +1,7 @@
 // File: config/database.js
 
 const mysql = require("mysql2");
+require('dotenv').config();
 
 let connectionConfig;
 
@@ -14,6 +15,10 @@ if (process.env.NODE_ENV === 'production') {
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
         database: process.env.MYSQLDATABASE,
+        // --- TAMBAHAN PENTING UNTUK POOLING ---
+        waitForConnections: true,
+        connectionLimit: 10, // Jumlah maksimum koneksi dalam pool
+        queueLimit: 0
     };
 } else {
     // Konfigurasi untuk Lokal (membaca dari file .env)
@@ -22,19 +27,16 @@ if (process.env.NODE_ENV === 'production') {
         host: process.env.DB_HOST || 'localhost',
         port: process.env.DB_PORT || 3306,
         user: process.env.DB_USER || 'root',
-        password: process.env.DB_PASSWORD || '', // Kosongkan password jika di lokal tidak pakai
+        password: process.env.DB_PASSWORD || '',
         database: process.env.DB_NAME || 'literalkids_db2',
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0
     };
 }
 
-const db = mysql.createConnection(connectionConfig);
+// `createConnection` membuat satu koneksi yang bisa mati.
+// `createPool` membuat sebuah 'manajer' koneksi yang tangguh.
+const pool = mysql.createPool(connectionConfig);
 
-db.connect((err) => {
-    if (err) {
-        console.error('DATABASE CONNECTION FAILED:', err.stack);
-        return;
-    }
-    console.log('Database connected successfully as ID ' + db.threadId);
-});
-
-module.exports = db;
+module.exports = pool;`
