@@ -15,9 +15,8 @@ if (process.env.NODE_ENV === 'production') {
         user: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
         database: process.env.MYSQLDATABASE,
-        // --- TAMBAHAN PENTING UNTUK POOLING ---
         waitForConnections: true,
-        connectionLimit: 10, // Jumlah maksimum koneksi dalam pool
+        connectionLimit: 10,
         queueLimit: 0
     };
 } else {
@@ -35,8 +34,8 @@ if (process.env.NODE_ENV === 'production') {
     };
 }
 
-// `createConnection` membuat satu koneksi yang bisa mati.
-// `createPool` membuat sebuah 'manajer' koneksi yang tangguh.
+// Menggunakan createPool untuk membuat 'manajer' koneksi yang tangguh.
 const pool = mysql.createPool(connectionConfig);
 
-module.exports = pool;`
+// Ekspor pool agar bisa digunakan oleh file controller lain.
+module.exports = pool;
