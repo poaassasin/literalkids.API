@@ -18,7 +18,6 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = (req, res) => {
-    //ini adalah perubahan
     const { email, password } = req.body;
 
     const sql = "SELECT * FROM users WHERE email = ?";
@@ -41,19 +40,18 @@ const loginUser = (req, res) => {
             { expiresIn: "1h" }
         );
 
-        const responsePayload = { 
+        // --- INI ADALAH BAGIAN YANG PALING PENTING ---
+        // Pastikan Anda mengirim kembali objek 'user' bersama dengan token.
+        // Objek 'user' ini berisi ID dan nama yang dibutuhkan oleh Android.
+        res.json({ 
             message: "Login successful", 
             token: token,
             user: {
                 id: user.id,
                 email: user.email,
-                name: user.name
+                name: user.name // 'name' diambil dari tabel 'users'
             }
-        };
-
-        console.log("SERVER RESPONSE PAYLOAD:", JSON.stringify(responsePayload, null, 2));
-
-        res.json(responsePayload);
+        });
     });
 };
 
