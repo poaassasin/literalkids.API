@@ -34,10 +34,24 @@ const updateHomepageUser = (req, res) => {
   const { id } = req.params;
   const { level, progress } = req.body;
 
+  if (level === undefined || progress === undefined) {
+    return res.status(400).json({ error: "Level dan progress wajib diisi" });
+  }
+  
   const sql = "UPDATE homepage_users SET level = ?, progress = ? WHERE id = ?";
+  
   db.query(sql, [level, progress, id], (err, result) => {
-    if (err) return res.status(500).json({ error: "Update error", detail: err });
-    res.json({ message: "User updated" });
+    if (err) {
+        console.error("Database update error:", err);
+        return res.status(500).json({ error: "Update error", detail: err });
+    }
+    
+    if (result.affectedRows === 0) {
+        // Ini terjadi jika tidak ada user dengan ID tersebut
+        return res.status(404).json({ error: "User dengan ID tersebut tidak ditemukan" });
+    }
+    
+    res.json({ message: "User updated successfully" });
   });
 };
 
