@@ -9,5 +9,6 @@ const {
 router.get('/:id', getHomepageUser);
 router.post('/', createHomepageUser);
 router.put('/:id', updateHomepageUser);
+router.put('/sync/:id', updateHomepageUser);
 
 module.exports = router;
