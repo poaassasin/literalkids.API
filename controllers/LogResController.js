@@ -40,18 +40,18 @@ const loginUser = (req, res) => {
             { expiresIn: "1h" }
         );
 
-        // --- INI ADALAH BAGIAN YANG PALING PENTING ---
-        // Pastikan Anda mengirim kembali objek 'user' bersama dengan token.
-        // Objek 'user' ini berisi ID dan nama yang dibutuhkan oleh Android.
-        res.json({ 
-            message: "Login successful", 
+        const responsePayload = {
+            message: "Login successful",
             token: token,
             user: {
                 id: user.id,
                 email: user.email,
-                name: user.name // 'name' diambil dari tabel 'users'
+                name: user.name // 'name' diambil dari tabel 'users' dan dimasukkan ke dalam objek 'user'
             }
-        });
+        };
+
+        // Mengirim respon yang sudah lengkap dan terstruktur dengan benar
+        res.json(responsePayload);
     });
 };
 
