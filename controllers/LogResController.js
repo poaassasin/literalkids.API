@@ -41,7 +41,7 @@ const loginUser = (req, res) => {
             { expiresIn: "1h" }
         );
 
-        res.json({ 
+        const responsePayload = { 
             message: "Login successful", 
             token: token,
             user: {
@@ -49,7 +49,11 @@ const loginUser = (req, res) => {
                 email: user.email,
                 name: user.name
             }
-        });
+        };
+
+        console.log("SERVER RESPONSE PAYLOAD:", JSON.stringify(responsePayload, null, 2));
+
+        res.json(responsePayload);
     });
 };
 
